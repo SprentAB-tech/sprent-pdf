@@ -46,4 +46,4 @@ Now I want Screenless to be linked with a webhook custom to Sprent (api.sprent.c
 
 # How to create a staging environment?
 
-We can probably create a copy of the workspace as a test environment.
+We can probably create a copy of the workspace as a test environment. Research this.
