@@ -43,3 +43,7 @@ OAuth2 with supabase turning it into a notion workspace and vice versa would be 
 Besides using my own Notion OpenAPI, every Notion Workspace deserves its own OpenAPI, so we can build a frontend to the CMS that is Notion. Take inspiration from https://github.com/TheF1rstPancake/AirtableOpenAPICustomBlock (Also test this)
 
 Now I want Screenless to be linked with a webhook custom to Sprent (api.sprent.com/submitMeeting) that uses the Notion API to insert the meeting connected to the right person, company, etc.
+
+# How to create a staging environment?
+
+We can probably create a copy of the workspace as a test environment.
