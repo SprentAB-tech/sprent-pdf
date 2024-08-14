@@ -1,31 +1,45 @@
-# Create React App
+# Idea: Using a third party as a backoffice
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+Airtable can be talked to via an OpenAPI: https://github.com/TheF1rstPancake/AirtableOpenAPICustomBlock
 
-## Deploy Your Own
+Notion doesn't have this, but has great functionality: https://www.notion.so/b8a77a6b1ae144be992b6c59c2acbb3f?v=5eeb4cd3370f49fe9c9a00c5d1bb5c4c . If we'd have the same for notion (or just use Airtable) we can connect anything to notion and create our own frontend even!
 
-Deploy your own Create React App project with Vercel.
+The frontend would just be a thin layer with a "Sign In to Notion" loginwall in front. The frontend, however, not be the backoffice itself. This would be notion. However, it would allow to have API-coupled actions to fill datapoints, and allow for tools such as PDF creation.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+TODO:
 
-_Live Example: https://create-react-template.vercel.app/_
+1. ✅ Convert all sprent data into CSVs or JSON (use Claude and Schema.md)
 
-## Available Scripts
+2. ✅ Import CSVs/JSON into the tables, either using CSV import (if it works) or through the API
 
-In the project directory, you can run:
+3. ✅ Make a simple React + Vite + Vercel project (https://vercel.com/docs/frameworks/vite)
 
-### `npm start`
+4. ✅ Add form prefilled with ?id=, to submit an ID and fetch the housing object, setting ?id=xxx as well
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+5. ✅ Deploy this at https://pdf.sprent.com with a secret admin password in front (later to be replaced with notion OAuth2)
 
-The page will reload when you make changes. You may also see any lint errors in the console.
+6. Create an ActionSchema OAuth client for Notion: https://developers.notion.com
 
-### `npm test`
+7. Get an access token for Sprent
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+8. Use https://www.actionschema.com/reference.html?openapiUrl=https://openapi.actionschema.com/notion.json#/operations/queryDatabase to retrieve the entire housing object
 
-### `npm run build`
+9. Validate the media uploaded to Notion are accessible for us on the outside.
 
-Builds the app for production to the `build` folder.
+10. Validate the relations are accessible.
 
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+11. Pull in the PDF renderer into the React app, making it standalone functional for the pulled in housing object.
+
+# Notion Supabase Import
+
+Convert relations into Notion relations: For each relation we had, use the Notion API and set the right Notion relation, two sided in most cases.
+
+For now, do this manually just for Sprent (and prove it's possible in the first place)
+
+OAuth2 with supabase turning it into a notion workspace and vice versa would be insanely useful.
+
+# Notion OpenAPI Creator
+
+Besides using my own Notion OpenAPI, every Notion Workspace deserves its own OpenAPI, so we can build a frontend to the CMS that is Notion. Take inspiration from https://github.com/TheF1rstPancake/AirtableOpenAPICustomBlock (Also test this)
+
+Now I want Screenless to be linked with a webhook custom to Sprent (api.sprent.com/submitMeeting) that uses the Notion API to insert the meeting connected to the right person, company, etc.
