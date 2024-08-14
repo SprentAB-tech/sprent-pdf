@@ -18,32 +18,21 @@ TODO:
 
 5. ✅ Deploy this at https://pdf.sprent.com with a secret admin password in front (later to be replaced with notion OAuth2)
 
-6. Create an ActionSchema OAuth client for Notion: https://developers.notion.com
+6. ✅ Create an access_token for Notion for sprent: https://developers.notion.com / https://www.notion.so/profile/integrations
 
-7. Get an access token for Sprent
+7. ✅ Use https://www.actionschema.com/reference.html?openapiUrl=https://openapi.actionschema.com/notion.json#/operations/queryDatabase to retrieve the entire housing object.
 
-8. Use https://www.actionschema.com/reference.html?openapiUrl=https://openapi.actionschema.com/notion.json#/operations/queryDatabase to retrieve the entire housing object
+8. ✅ Validate the media uploaded to Notion are accessible for us on the outside.
 
-9. Validate the media uploaded to Notion are accessible for us on the outside.
+9. ✅ Validate the relations are accessible.
 
-10. Validate the relations are accessible.
+10. ✅ Validate that I can update a Media URL and also a Relation UUID based on an ID found. Use https://developers.notion.com/reference/patch-page
 
-11. Pull in the PDF renderer into the React app, making it standalone functional for the pulled in housing object.
+# Make PDF Renderer
 
-# Notion Supabase Import
+🚫 Create Notion OpenAPI so I have an SDK for projects + housings + companies + people
 
-Convert relations into Notion relations: For each relation we had, use the Notion API and set the right Notion relation, two sided in most cases.
+- For prod
+- For staging
 
-For now, do this manually just for Sprent (and prove it's possible in the first place)
-
-OAuth2 with supabase turning it into a notion workspace and vice versa would be insanely useful.
-
-# Notion OpenAPI Creator
-
-Besides using my own Notion OpenAPI, every Notion Workspace deserves its own OpenAPI, so we can build a frontend to the CMS that is Notion. Take inspiration from https://github.com/TheF1rstPancake/AirtableOpenAPICustomBlock (Also test this)
-
-Now I want Screenless to be linked with a webhook custom to Sprent (api.sprent.com/submitMeeting) that uses the Notion API to insert the meeting connected to the right person, company, etc.
-
-# How to create a staging environment?
-
-We can probably create a copy of the workspace as a test environment. Research this.
+Pull in the PDF renderer into the React app, making it standalone functional for the pulled-in housing object. Here, fix the images shown so they show nicely.
