@@ -26,13 +26,19 @@ TODO:
 
 9. ✅ Validate the relations are accessible.
 
-10. ✅ Validate that I can update a Media URL and also a Relation UUID based on an ID found. Use https://developers.notion.com/reference/patch-page
-
 # Make PDF Renderer
 
-🚫 Create Notion OpenAPI so I have an SDK for projects + housings + companies + people
-
-- For prod
-- For staging
-
 Pull in the PDF renderer into the React app, making it standalone functional for the pulled-in housing object. Here, fix the images shown so they show nicely.
+
+Assumptions:
+
+- Confirm I can set a notion relation uuid to a uuid of another one. Use https://developers.notion.com/reference/patch-page
+- Try to create a new page directly.
+
+Based on these things, create a PostgreSQL to Notion migration script:
+
+1. Migrate postgreSQL id --> uuid and reflect this on sprent-admin
+2. Create a script that exports the postgres schemas into a JSON
+3. Create a script that exports all postgres tables into JSON
+4. Create a function that, with JSON, it creates notion databases in a particular folder and fills it. We probably cannot create our own page uuids, so need to overwrite all relations after page creation.
+5. Couple this all together, ensure regular ids can't be used.
